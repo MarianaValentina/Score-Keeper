@@ -1,0 +1,99 @@
+package com.example.android.scorekeeper;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import com.example.android.scorekeeper.R;
+
+import org.w3c.dom.Text;
+
+import java.text.NumberFormat;
+
+public class MainActivity extends AppCompatActivity {
+    /**
+     * keeps the score for Team 1
+     */
+    int teamOne = 0;
+
+    /**
+     * keeps the score for Team 2
+     */
+    int teamTwo = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * Displays the score for team one
+     */
+    private void displayScoreForTeamOne (int score){
+        TextView scoreTeamOne = (TextView) findViewById(R.id.first_team_score);
+        scoreTeamOne.setText(" " + score);
+    }
+
+    /**
+     * Ads 5 points for TEAM ONE score when the button TRY & PENALTY TRY is clicked
+     */
+    public void AddFivePointsTeamOne(View v){
+        teamOne = teamOne + 5;
+        displayScoreForTeamOne(teamOne);
+    }
+    /**
+     * Ads 3 points for TEAM ONE score when the button PENALTY & DROP GOALS is clicked
+     */
+    public void AddThreePointsTeamOne(View v){
+        teamOne = teamOne + 3;
+        displayScoreForTeamOne(teamOne);
+    }
+    /**
+     * Ads 2 points for TEAM ONE score when the button CONVERSION is clicked
+     */
+    public void AddTwoPointsTeamOne(View v){
+        teamOne = teamOne + 2;
+        displayScoreForTeamOne(teamOne);
+    }
+
+    /**
+     ****************************************************************************************************************************
+     */
+
+
+    /**
+     * Displays the score for team two
+     */
+    public void displayScoreForTeamTwo (int score){
+        TextView scoreTeamTwo = (TextView) findViewById(R.id.second_team_score);
+        scoreTeamTwo.setText(" " + score);
+    }
+
+    /**
+     * Ads 5 points for TEAM TWO score when the button TRY & PENALTY TRY is clicked
+     */
+    public void AddFivePointsTeamTwo(View v){
+        teamTwo = teamTwo + 5;
+        displayScoreForTeamTwo(teamTwo);
+    }
+    /**
+     * Ads 3 points for TEAM TWO score when the button PENALTY & DROP GOALS is clicked
+     */
+    public void AddThreePointsTeamTwo(View v){
+        teamTwo = teamTwo + 3;
+        displayScoreForTeamTwo(teamTwo);
+    }
+    /**
+     * Ads 2 points for TEAM TWO score when the button CONVERSION is clicked
+     */
+    public void AddTwoPointsTeamTwo(View v){
+        teamTwo = teamTwo + 2;
+        displayScoreForTeamTwo(teamTwo);
+    }
+
+    public void ResetScore (View v){
+        displayScoreForTeamOne(0);
+        displayScoreForTeamTwo(0);
+    }
+}
+
